@@ -4,3 +4,10 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-family: 'Vina Sans', cursive;
 }
+
+.header-bg {
+    background-image: url('https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=740&t=st=1682955511~exp=1682956111~hmac=2dc9c6912f2ea00bb2ecff5cded81e6847ba7c8957a9fd4becb7c3269fbe412a');
+    background-repeat: repeat-x;
+    background-size: cover;
+
+}
