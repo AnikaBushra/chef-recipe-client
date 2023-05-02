@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const { user, login, loginWithGoogle, loginWithGigHub } = useContext(AuthContext);
+    const { user, login, loginWithGoogle, loginWithGigHub, logOut } = useContext(AuthContext);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
@@ -50,6 +50,7 @@ const Login = () => {
                 setError(error.message)
             })
     }
+
     return (
         <div>
             <div className="hero min-h-screen bg-gray-300 ">
