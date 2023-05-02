@@ -4,7 +4,8 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('')
-    const [success, setSuccess] = useState('')
+    const [success, setSuccess] = useState('');
+
     const { signUpUser, updateUser } = useContext(AuthContext);
     const handleRegister = (e) => {
         e.preventDefault()
