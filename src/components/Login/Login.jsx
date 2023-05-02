@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const { user, login } = useContext(AuthContext);
+    const { user, login, loginWithGoogle, loginWithGigHub } = useContext(AuthContext);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
@@ -16,6 +16,31 @@ const Login = () => {
         setError('')
         setSuccess('');
         login(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setSuccess('User Logged successfully')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+    // sign in with google 
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                const user = result.user;
+                setSuccess('User Logged successfully')
+                console.log(user);
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+    // sign In with git hub 
+    const handleGithubLogin = () => {
+        loginWithGigHub()
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -59,17 +84,18 @@ const Login = () => {
                                 <div className="form-control mt-4">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
-                                <div className="form-control mt-2">
-                                    <button className="btn bg-white text-black"><FaGithub className='m-2'></FaGithub> Login with Github</button>
-                                </div>
-                                <div className="form-control mt-2">
-                                    <button className="btn "> <FaGoogle className='m-2 '></FaGoogle>Login with Google</button>
-                                </div>
 
-                                <label className="label">
-                                    <p >New to <span>Bon Appetit?</span><Link className=" text-xl text-violet-500" to={'/register'}>Register here.</Link></p>
-                                </label>
                             </form>
+                            <div className="form-control mt-2">
+                                <button onClick={handleGithubLogin} className="btn bg-white text-black"><FaGithub className='m-2'></FaGithub> Login with Github</button>
+                            </div>
+                            <div className="form-control mt-2">
+                                <button onClick={handleGoogleLogin} className="btn "> <FaGoogle className='m-2 '></FaGoogle>Login with Google</button>
+                            </div>
+
+                            <label className="label">
+                                <p >New to <span>Bon Appetit?</span><Link className=" text-xl text-violet-500" to={'/register'}>Register here.</Link></p>
+                            </label>
                         </div>
 
                     </div>
