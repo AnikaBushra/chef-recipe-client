@@ -21,7 +21,7 @@ const Home = () => {
                     <p className="btn btn-ghost normal-case text-3xl  text-white font-thin">for home cooks who are hungry for something good. find thousandes of tested recipes</p></div>
             </div>
             <div className=' bg-gray-200 text-center py-6'>
-                <p className='text-5xl'>Our chef</p>
+                <p className='text-5xl'>Our chefs</p>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-8 p-20 chef-card mx-auto' >
 
                     {
