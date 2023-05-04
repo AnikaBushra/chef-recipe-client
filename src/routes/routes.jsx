@@ -4,6 +4,9 @@ import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import SingleChef from "../components/SingleChef/SingleChef";
+
+
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +27,11 @@ export const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'chefdata/:id',
+                element: <SingleChef></SingleChef>,
+                loader: ({ params }) => fetch(`https://assignment-10-chef-recipe-server-anikabushra.vercel.app/chefdata/${params.id}`)
             }
         ]
     }

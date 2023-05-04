@@ -1,16 +1,14 @@
 import React from 'react';
 import './Home.css'
-import { TbToolsKitchen } from 'react-icons/tb';
+
 import { useLoaderData } from 'react-router-dom';
 import Chef from '../Chef/Chef';
 
 
 
-
-
 const Home = () => {
     const chefdata = useLoaderData()
-    console.log(chefdata);
+
 
     return (
 

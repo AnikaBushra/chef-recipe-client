@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Chef = ({ chef }) => {
-    const { chefPicture, chefName, yearsOfExperience, numOfRecipes, likes } = chef;
-    console.log(chef);
+    const { chefPicture, chefName, yearsOfExperience, numOfRecipes, likes, id } = chef;
+
     return (
         <div className=' text-center border-2 border-black rounded-md  bg-gray-300'>
             <div>
@@ -17,7 +17,7 @@ const Chef = ({ chef }) => {
                     <p>{likes} likes</p>
                 </div>
 
-                <button className=' border-2 border-green-800 rounded-md m-4 p-2 hover:text-white hover:bg-gray-400'><Link>View recipe button</Link></button>
+                <button className=' border-2 border-green-800 rounded-md m-4 p-2 hover:text-white hover:bg-gray-400'><Link to={`/chefdata/${id}`}>View recipe button</Link></button>
             </div>
         </div>
     );
