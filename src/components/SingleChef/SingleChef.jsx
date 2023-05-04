@@ -1,6 +1,7 @@
 import React from 'react';
-import { useLoaderData, useNavigation } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import Recipes from '../Recipes/Recipes';
+import LazyLoad from 'react-lazy-load';
 
 const SingleChef = () => {
     const data = useLoaderData();
@@ -14,7 +15,9 @@ const SingleChef = () => {
     return (
         <div className='text-center'>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 bg-base-100  my-20  text-green-700 p-6 m-10 gap-4">
-                <figure><img className='w-full' src={chefPicture} alt="chefImg" /></figure>
+                <LazyLoad>
+                    <figure><img className='w-full' src={chefPicture} alt="chefImg" /></figure>
+                </LazyLoad>
                 <div className='text-left'>
 
                     <div>
