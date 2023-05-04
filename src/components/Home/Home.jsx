@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css'
-
-
 import Chef from '../Chef/Chef';
 import Loading from '../Loading/Loading';
+import Courses from '../Courses/Courses';
+import BestOffer from '../BestOffer/BestOffer'
 
 
 
@@ -36,7 +36,7 @@ const Home = () => {
                     <p className="btn btn-ghost normal-case text-3xl  text-white font-thin">for home cooks who are hungry for something good. find thousandes of tested recipes</p></div>
             </div>
             <div className=' bg-gray-200 text-center py-6'>
-                <p className='text-5xl'>Our chefs</p>
+                <p className='text-5xl'>MEET PROFESSIONALS</p>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-8 p-20 chef-card mx-auto' >
 
                     {
@@ -46,6 +46,14 @@ const Home = () => {
                         ></Chef>)
                     }
                 </div>
+            </div>
+            <div>
+                <p className='text-5xl text-center py-6'>ALL OUR COOK COURSES</p>
+                <Courses></Courses>
+            </div>
+            <div>
+                <p className='text-5xl text-center py-6'>HEAR FROM OUR CUSTOMERS</p>
+                <BestOffer></BestOffer>
             </div>
         </div>
     );
