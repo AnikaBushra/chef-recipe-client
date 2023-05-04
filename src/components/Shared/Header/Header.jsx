@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 import { AuthContext } from '../../Provider/AuthProvider';
 
@@ -18,15 +18,15 @@ const Header = () => {
                 <div>
                     <h2 className="btn btn-ghost normal-case text-5xl web-name tracking-widest font-thin">Bon Appetit</h2>
                 </div>
-                <div className="">
-                    <Link className='px-4' to='/'>Home</Link>
-                    <Link className='px-4' to='/blog'>Blog</Link>
+                <div className=" ">
+                    <NavLink className={({ isActive }) => isActive ? 'text-green-500 p-4' : 'text-white p-4'} to='/'>Home</NavLink>
+                    <NavLink className={({ isActive }) => isActive ? 'text-green-500 p-4' : 'text-white p-4'} to='/blog'>Blog</NavLink>
 
                 </div>
-                <div className="">
+                <div>
                     {
                         user ? <><img title={user.displayName} className='w-10 rounded-full' src={user.photoURL}></img>
-                            <Link className='px-4' onClick={logOutt} >Log Out</Link></> : <Link className='px-4' to='/login'>Login</Link>
+                            <Link className='px-4' onClick={logOutt} >Log Out</Link></> : <NavLink className={({ isActive }) => isActive ? 'text-green-500 p-4' : 'text-white p-4'} to='/login'>Login</NavLink>
 
                     }
                 </div>

@@ -1,12 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const { user, login, loginWithGoogle, loginWithGigHub, logOut } = useContext(AuthContext);
     const [error, setError] = useState('')
-    const [success, setSuccess] = useState('')
+    const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -15,11 +20,13 @@ const Login = () => {
         const password = form.password.value;
         setError('')
         setSuccess('');
+        form.reset('')
         login(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 setSuccess('User Logged successfully')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
@@ -32,6 +39,7 @@ const Login = () => {
                 const user = result.user;
                 setSuccess('User Logged successfully')
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
@@ -45,6 +53,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setSuccess('User Logged successfully')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)

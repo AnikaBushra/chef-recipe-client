@@ -8,12 +8,14 @@ export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [loading, setloading] = useState(true)
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
 
     const signUpUser = (email, password) => {
+        setloading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const updateUser = (displayName, photoURL) => {
@@ -23,13 +25,16 @@ const AuthProvider = ({ children }) => {
     }
 
     const loginWithGoogle = () => {
+        setloading(true)
         return signInWithPopup(auth, googleProvider);
     }
     const loginWithGigHub = () => {
+        setloading(true)
         return signInWithPopup(auth, githubProvider);
     }
 
     const login = (email, password) => {
+        setloading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const logOut = () => {
@@ -38,12 +43,13 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
+            setloading(false)
             // console.log(currentUser);
         })
         return () => unsubscribe()
     }, [])
 
-    const authInfo = { signUpUser, updateUser, login, user, loginWithGoogle, loginWithGigHub, logOut }
+    const authInfo = { signUpUser, updateUser, login, user, loginWithGoogle, loginWithGigHub, logOut, loading }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

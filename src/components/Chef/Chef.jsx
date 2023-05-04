@@ -17,7 +17,7 @@ const Chef = ({ chef }) => {
                     <p>{likes} likes</p>
                 </div>
 
-                <button className=' border-2 border-green-800 rounded-md m-4 p-2 hover:text-white hover:bg-gray-400'><Link to={`/chefdata/${id}`}>View recipe button</Link></button>
+                <Link to={`/chefdata/${id}`}><button className=' border-2 border-green-800 rounded-md m-4 p-2 hover:text-white hover:bg-gray-400'>View recipe button</button></Link>
             </div>
         </div>
     );

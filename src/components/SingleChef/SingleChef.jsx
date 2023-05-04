@@ -4,24 +4,21 @@ import Recipes from '../Recipes/Recipes';
 
 const SingleChef = () => {
     const data = useLoaderData();
-    const navigation = useNavigation();
-    if (navigation.state !== 'idle') {
-        return 'lodfjlfjsdj'
-    }
-    console.log(navigation.state);
+
+
     const { chefPicture, chefName, yearsOfExperience, numOfRecipes, likes, id, chefBio, recipes } = data;
-    console.log(data);
+
 
 
 
     return (
         <div className='text-center'>
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 bg-base-100 shadow-xl my-20  text-green-700 p-6 m-10 gap-4">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 bg-base-100  my-20  text-green-700 p-6 m-10 gap-4">
                 <figure><img className='w-full' src={chefPicture} alt="chefImg" /></figure>
                 <div className='text-left'>
 
                     <div>
-                        <h2 className="card-title text-3xl">{chefName}</h2>
+                        <h2 className=" text-3xl">{chefName}</h2>
                         <p>{chefBio}</p>
 
                     </div>
