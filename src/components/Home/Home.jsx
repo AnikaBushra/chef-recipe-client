@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css'
 
-import { useLoaderData } from 'react-router-dom';
+
 import Chef from '../Chef/Chef';
+import Loading from '../Loading/Loading';
 
 
 
 const Home = () => {
-    const chefdata = useLoaderData()
+    const [isLoading, setLoading] = useState(true)
+    const [chefdata, setChefdata] = useState([])
 
+    useEffect(() => {
+        fetch('https://assignment-10-chef-recipe-server-anikabushra.vercel.app/chefdata')
+            .then(res => res.json())
+            .then(data => setChefdata(data))
+            .catch((error) => {
+                console.log(error);
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }, []);
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
 
