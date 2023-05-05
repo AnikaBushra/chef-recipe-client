@@ -22,7 +22,7 @@ const Recipes = ({ recipe }) => {
                     <p className='text-xl text-bold '>Recipe</p>
                     <p>{directions}</p>
                     <div className="card-actions justify-end">
-                        <p>rating: {rating}</p>
+                        <p className='text-orange-400'>rating: {rating}</p>
                         <button className={`bg-green-600 border-2 p-2 rounded-md text-white ${favourite && 'bg-green-300'}`} onClick={handleFavourite} disabled={favourite && true}>Add to Favoutite</button>
                         <ToastContainer />
                     </div>
