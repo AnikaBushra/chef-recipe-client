@@ -4,6 +4,7 @@ import Chef from '../Chef/Chef';
 import Loading from '../Loading/Loading';
 import Courses from '../Courses/Courses';
 import BestOffer from '../BestOffer/BestOffer'
+import Reservasion from '../Reservasion/Reservasion';
 
 
 
@@ -52,9 +53,14 @@ const Home = () => {
                 <Courses></Courses>
             </div>
             <div>
+                <p className='text-5xl text-center py-6 mt-6'>Reservation Form</p>
+                <Reservasion></Reservasion>
+            </div>
+            <div>
                 <p className='text-5xl text-center py-6'>HEAR FROM OUR CUSTOMERS</p>
                 <BestOffer></BestOffer>
             </div>
+
         </div>
     );
 };
